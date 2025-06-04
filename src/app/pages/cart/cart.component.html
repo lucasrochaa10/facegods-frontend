@@ -1,0 +1,35 @@
+<h2>🛒 Tu cesta</h2>
+
+<div *ngIf="cart.length === 0">
+  <p>No tienes productos en la cesta.</p>
+</div>
+
+<div *ngIf="cart.length > 0">
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Talla</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart">
+        <td><img [src]="item.image" alt="{{ item.name }}" /></td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.size }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }} €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="total"><strong>Total: {{ total | number:'1.2-2' }} €</strong></p>
+
+  <div class="actions">
+    <button (click)="checkout()">Finalizar compra</button>
+    <button (click)="vaciarCesta()">Vaciar cesta</button>
+  </div>
+</div>

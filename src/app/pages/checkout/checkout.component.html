@@ -1,0 +1,45 @@
+<h2>Finalizar compra</h2>
+
+<form (ngSubmit)="confirmarCompra()" #checkoutForm="ngForm" class="checkout-form">
+  <h3>🧍‍♂️ Información de contacto</h3>
+  <label>Email:
+    <input type="email" name="email" [(ngModel)]="email" required />
+  </label>
+
+  <h3>📦 Dirección de envío</h3>
+  <label>Nombre completo:
+    <input type="text" name="nombre" [(ngModel)]="nombre" required />
+  </label>
+  <label>Dirección:
+    <input type="text" name="direccion" [(ngModel)]="direccion" required />
+  </label>
+  <label>Código postal:
+    <input type="text" name="cp" [(ngModel)]="cp" required />
+  </label>
+  <label>Ciudad:
+    <input type="text" name="ciudad" [(ngModel)]="ciudad" required />
+  </label>
+  <label>Provincia:
+    <input type="text" name="provincia" [(ngModel)]="provincia" required />
+  </label>
+  <label>Teléfono:
+    <input type="text" name="telefono" [(ngModel)]="telefono" required />
+  </label>
+
+  <h3>💳 Método de pago </h3>
+  <label>Número de tarjeta:
+    <div class="card-input">
+      <input type="text" name="tarjeta" [(ngModel)]="tarjeta" placeholder="1234 5678 9012 3456" required />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" style="height: 20px; margin-left: 10px;" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" style="height: 20px; margin-left: 5px;" />
+    </div>
+  </label>
+  <label>Fecha de expiración:
+    <input type="text" name="expiracion" [(ngModel)]="expiracion" placeholder="MM/AA" required />
+  </label>
+  <label>CVV:
+    <input type="text" name="cvv" [(ngModel)]="cvv" placeholder="123" required />
+  </label>
+
+  <button type="submit" [disabled]="checkoutForm.invalid">Confirmar compra</button>
+</form>
